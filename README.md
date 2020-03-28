@@ -1,5 +1,4 @@
-# AWSInstanceScheduler
-AWS Instance Scheduler in China regions
+# AWS Instance Scheduler In China regions
 
 在AWS中国区域，通过AWS Lambda实现实例的自动化调度，以优化资源使用成本和简化管理。
 
