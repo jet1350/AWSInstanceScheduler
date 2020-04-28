@@ -22,7 +22,7 @@ AWS按需提供基础架构，以便客户可以控制其资源容量并仅为�
 
 例如，如果在周五上午9点调用Lambda函数，并且它使用Schedule = cn-office-hours标签标识已停止的Amazon EC2或Amazon RDS实例，则它将检查Amazon DynamoDB的办公时间计划配置的细节。 如果办公时间计划包含一个周期规则，指示该实例应在周一至周五从上午9点到下午6点运行，则Lambda函数将启动该实例。
 
-由于中国区域目前不支持Lambda函数的环境变量特性，本方案使用AWS Systems Manager的参数仓库（Parameter Store）存放Lambda函数的环境参数，如Lambda函数运行时访问DynamoDB的表名称。
+本方案使用AWS Systems Manager的参数仓库（Parameter Store）存放Lambda函数运行所需的参数，如Lambda函数运行时访问DynamoDB的表名称。需要说明一下，从2019年11月，Lambda环境变量特性在中国宁夏和北京区域已经可以使用。
 
 AWS Systems Manager 提供一个集中式存储来管理配置数据，支持数据库字符串等纯文本数据或密码等保密数据。这让您能够将保密数据和配置数据与代码分开。您可以标记参数并将其整理成不同的层级，这有助于您更轻松地管理参数。例如，您可以将同一参数名称 (“db-string”) 与不同的层级路径 (“dev/db-string”或“prod/db-string”) 结合使用，用于存储不同的值。此外，您还可以使用 AWS Identity and Access Management (IAM) 控制用户和资源对参数的访问权限。参数可以通过 Amazon Elastic Container Service、AWS Lambda 和 AWS CloudFormation 等其他 AWS 服务引用。
 
